@@ -1,0 +1,39 @@
+objectives = {"save garona destroy the abbey"}
+
+-- Allowed units
+DefineAllowHumanUnits("FFFFFFFFFFFFFFFF")
+DefineAllowOrcUnits("FFFFFFFFFFFFFFFF")
+
+
+-- Researched upgrades and spells
+DefineAllow("upgrade-spear1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-spear2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-arrow1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-arrow2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-axe1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-axe2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-sword1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-sword2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-wolves1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-wolves2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-horse1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-horse2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-orc-shield1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-orc-shield2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-human-shield1", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-human-shield2", "RRRRAAAAAAAAAAAR")
+DefineAllow("upgrade-spider", "ARRRAAAAAAAAAAAA")
+DefineAllow("upgrade-scorpion", "ARRRAAAAAAAAAAAA")
+DefineAllow("upgrade-poison-cloud", "ARRRAAAAAAAAAAAA")
+DefineAllow("upgrade-rain-of-fire", "ARRRAAAAAAAAAAAA")
+DefineAllow("upgrade-daemon", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-water-elemental", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-raise-dead", "RRRRAAAAAAAAAAAA")
+DefineAllow("upgrade-healing", "RRRRAAAAAAAAAAAA")
+DefineAllow("upgrade-dark-vision", "RRRRAAAAAAAAAAAA")
+DefineAllow("upgrade-far-seeing", "RRRRAAAAAAAAAAAA")
+DefineAllow("upgrade-unholy-armor", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-invisibility", "AAAAAAAAAAAAAAAA")
+
+currentRace = "orc" -- Fix for restoring the correct race on load
+currentState = 8 -- Fix for restoring the correct campaign pos on load

@@ -1,0 +1,67 @@
+$#include "network.h"
+
+void InitNetwork1(void);
+void ExitNetwork1(void);
+
+bool IsNetworkGame();
+
+int NetworkSetupServerAddress(const std::string serveraddr, int port = 0);
+void NetworkInitClientConnect(void);
+void NetworkInitServerConnect(int openslots);
+void NetworkServerStartGame(void);
+void NetworkProcessClientRequest(void);
+int GetNetworkState();
+void NetworkServerResyncClients(void);
+void NetworkDetachFromServer(void);
+
+class ServerSetupStateRacesArray {
+    int& operator[](int idx) { return p[idx].Race; }
+    int& operator[](int idx) const { return p[idx].Race; }
+};
+
+enum SlotOption {
+	Available @ SlotAvailable,
+	Computer @ SlotComputer,
+	Closed @ SlotClosed,
+};
+
+class CServerSetup {
+	Settings ServerGameSettings;
+	SlotOption CompOpt[PlayerMax];
+	unsigned short Ready[PlayerMax]; // cannot use char since tolua interpret variable as string.
+	tolua_property unsigned char ResourcesOption;
+	tolua_property unsigned char UnitsOption;
+	tolua_property unsigned char FogOfWar;
+	tolua_property unsigned char Inside;
+	tolua_property unsigned char RevealMap;
+	tolua_property unsigned char GameTypeOption;
+	tolua_property unsigned char Difficulty;
+	tolua_property unsigned char Opponents;
+        tolua_property tolua_readonly ServerSetupStateRacesArray *Race;
+};
+
+$[
+CServerSetup.MapRichness = 0
+$]
+
+extern CServerSetup LocalSetupState;
+extern CServerSetup ServerSetupState;
+extern int NetLocalHostsSlot;
+tolua_readonly int NetPlayerNameSize;
+struct CNetworkHost {
+	unsigned long  Host;         /// Host address
+	unsigned short Port;         /// Port on host
+	unsigned short PlyNr;        /// Player number for game
+	char           PlyName[NetPlayerNameSize];  /// Name of player
+};
+extern CNetworkHost Hosts[PlayerMax];
+
+$extern string NetworkMapName;
+string NetworkMapName;
+
+$extern string NetworkMapFragmentName;
+string NetworkMapFragmentName;
+
+$void NetworkGamePrepareGameSettings(void);
+void NetworkGamePrepareGameSettings(void);
+

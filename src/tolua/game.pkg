@@ -1,0 +1,123 @@
+$bool IsReplayGame();
+bool IsReplayGame();
+
+
+$void StartMap(const string &str, bool clean = true);
+void StartMap(const string str, bool clean = true);
+$void StartReplay(const string &str, bool reveal = false);
+void StartReplay(const string str, bool reveal = false);
+$void StartSavedGame(const string &str);
+void StartSavedGame(const string str);
+
+$int SaveReplay(const std::string &filename);
+int SaveReplay(const std::string filename);
+
+$#include "results.h"
+
+enum GameResults {
+    GameNoResult,
+    GameVictory,
+    GameDefeat,
+    GameDraw,
+    GameQuitToMenu,
+    GameRestart,
+};
+
+GameResults GameResult;
+
+$void StopGame(GameResults result);
+void StopGame(GameResults result);
+
+extern bool GameRunning;
+extern void SetGamePaused(bool paused);
+extern bool GetGamePaused();
+extern tolua_property__s bool GamePaused;
+extern void SetGameSpeed(int speed);
+extern int GetGameSpeed();
+extern tolua_property__s int GameSpeed;
+extern bool GameObserve;
+extern bool GameEstablishing;
+
+extern unsigned long GameCycle;
+extern unsigned long FastForwardCycle;
+
+
+$#include "settings.h"
+
+struct SettingsPresets {
+	int PlayerColor;
+	string AIScript;
+	int Race;
+	int Team;
+	PlayerTypes Type;
+};
+
+enum RevealTypes { 
+	cNoRevelation, 
+	cAllUnits, 
+	cBuildingsOnly 
+};
+
+enum NetGameTypes {
+	SettingsSinglePlayerGame,
+	SettingsMultiPlayerGame,
+	Unset
+};
+
+class Settings {
+	NetGameTypes NetGameType;
+
+	SettingsPresets Presets[PlayerMax];
+
+	int Resources;
+	int NumUnits;
+	int Opponents;
+	int Difficulty;
+	GameTypes GameType;
+	FieldOfViewTypes FoV;
+	MapRevealModes RevealMap;
+	RevealTypes DefeatReveal;
+	bool NoFogOfWar;
+	bool Inside;
+	bool AiExplores;
+	bool SimplifiedAutoTargeting;
+	int _Bitfield @ Flags;
+
+	bool GetUserGameSetting(int i);
+	void SetUserGameSetting(int i, bool v);
+};
+
+$[
+Settings.MapRichness = 0
+$]
+
+
+extern Settings GameSettings;
+
+#define SettingsPresetMapDefault -1
+
+enum MapRevealModes {
+	cHidden,
+	cKnown,
+	cExplored,
+	cNumOfModes
+};
+
+enum FieldOfViewTypes {
+	cShadowCasting,
+	cSimpleRadial,
+	NumOfTypes
+};
+
+enum GameTypes {
+	SettingsGameTypeMapDefault = SettingsPresetMapDefault,
+	SettingsGameTypeMelee = 0,
+	SettingsGameTypeFreeForAll,
+	SettingsGameTypeTopVsBottom,
+	SettingsGameTypeLeftVsRight,
+	SettingsGameTypeManVsMachine,
+	SettingsGameTypeManTeamVsMachine,
+	SettingsGameTypeMachineVsMachine,
+        SettingsGameTypeMachineVsMachineTraining,
+};
+

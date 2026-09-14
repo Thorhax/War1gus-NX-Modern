@@ -1,0 +1,39 @@
+objectives = {"kill griselda and her minions"}
+
+-- Allowed units
+DefineAllowHumanUnits("FFFFFFFFFFFFFFFF")
+DefineAllowOrcUnits("FFFFFFFFFFFFFFFF")
+
+
+-- Researched upgrades and spells
+DefineAllow("upgrade-spear1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-spear2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-arrow1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-arrow2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-axe1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-axe2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-sword1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-sword2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-wolves1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-wolves2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-horse1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-horse2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-orc-shield1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-orc-shield2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-human-shield1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-human-shield2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-spider", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-scorpion", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-poison-cloud", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-rain-of-fire", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-daemon", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-water-elemental", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-raise-dead", "RRRRAAAAAAAAAAAA")
+DefineAllow("upgrade-healing", "RRRRAAAAAAAAAAAA")
+DefineAllow("upgrade-dark-vision", "ARRRAAAAAAAAAAAA")
+DefineAllow("upgrade-far-seeing", "ARRRAAAAAAAAAAAA")
+DefineAllow("upgrade-unholy-armor", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-invisibility", "AAAAAAAAAAAAAAAA")
+
+currentRace = "orc" -- Fix for restoring the correct race on load
+currentState = 4 -- Fix for restoring the correct campaign pos on load
